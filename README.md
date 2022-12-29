@@ -9,7 +9,7 @@
     The initial state of the program is the Normal Mood state or state0 with current state_value of (x1=0,x2=0).
     As the user you need to chose to stay with the normal mood or change your mood. To do so, input value x3=1 will take you to the Sad state while input value x3=0 will let you remain in your current normal mood.
 
-    FOUR MOOD STATES and their cuurent state valu
+    FOUR MOOD STATES and their cuurent state value
      1. Normal Mood: (x1=0, x2=0)
      2. Sad Mood:    (x1=0, x2=1)
      3. Angry Mood:  (x1=1, x2=0)
