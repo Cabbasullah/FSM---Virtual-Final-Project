@@ -1,42 +1,43 @@
 ## Finite State Machine (ENTERTAINMENT BILLBOARD)
    ![Alt text](ebb.png)
 
-   #### The first step the user should take in order to use the entertainment billboard is to identify temporary current mood. Only then can you decide which emoji the program would generate for you with the input value of your choice.
+   #### The first step the user should take in order to use the entertainment billboard is to enter one bit input value (1 or 0) to go the next Mood state. Only then can you decide which emoji the program would generate for you with the input value of your choice.
+        
+        
+     
 
-  
+    The initial state of the program is the Normal Mood state or state0 with current state_value of (x1=0,x2=0).
+    As the user you need to chose to stay with the normal mood or change your mood. To do so, input value x3=1 will take you to the Sad state while input value x3=0 will let you remain in your current normal mood.
 
-    FOUR MOOD STATES
+    FOUR MOOD STATES and their cuurent state valu
      1. Normal Mood: (x1=0, x2=0)
      2. Sad Mood:    (x1=0, x2=1)
      3. Angry Mood:  (x1=1, x2=0)
      4. Happy Mood:   (x1=1, x2=1)
     Now you want to change your current mood 
     so that the program generates the emoji you want:
-    To do so, as you identify your current mood state(x1,x2) you should also 
-    include the input value based on the next mood state you want as x3(1,0).
+    To do so, enter one bit input value based on the next mood state you want as x3(1 or 0).
 
-For example: You want a happy mood, to do so you have to identify the angry mood values(x1=1,x2=0) and enter x3=0 as your transition input value to happy mood state. [IT IS IMPORTANT TO PAY ATTENTION TO HOW THE STATES ARE CONNECTED! ] Yellow colored text followed by SMiley face will pop up as a result of the above values
-![Alt text](happy.png)
 
 ## All Possible Combinations and  Results
 
     Three possible ways to get Normal Mood Emoji
-      1. x1=0,x2=0,x3=0
-      2. x1=1,x2=1,x3=0 [from happy mood + input: x3=0]
-      3. x1=0, x2=1, x3=0 [from sad mood + input: x3=0]
+      1. initial input value of x3= 0.
+      2. input value of x3=0 from sad mood state
+      3.input value of x3=0 [from happy mood]
 ![Alt text](norm.png)
    
     Sad Mood Emoji Combinations
-      1. x1=0, x2=0, x3=1 [from normal mood + input x3=0]
+      1. x3=1 [from normal mood state]
 ![Alt text](blue.png)
 
     Happy Mood Emoji Combinations
-      1. x1=1, x2=0, x3=0 [From angry mood + input x3=0]
+      1. x3=0 [From angry mood]
 ![Alt text](happy.png)
 
     Angry Mood Emoji Combinations
-      1. x1=0, x2=1,x3=1[from sad mood + input x3=1]
-      2. x1=1, x2=0,x3=1[Angry mood itself + input x3=1]
+      1. x3=1[from sad mood]
+      2. x3=1[Angry mood itself]
 ![Alt text](anger.png)
 
 
@@ -69,32 +70,26 @@ For example: You want a happy mood, to do so you have to identify the angry mood
         The same equation was used in the code.
 ![Alt text](y.png)
 
-[NOTE: since y=x1*x2, which means the input is the current states, the equation for y was used in the if statement since the out for y should be an emoji( that emoji represents the output of y.)]
+[NOTE: since y=x1*x2, which means the input is the current states, the equation for y was used in the if statement since the out for y should be an emoji( that emoji represents the output of y.)An example of how it used in if statement of normal mood is below]
 
 
 ```
 /*Outout Equation: y=(x1*x2), so in this case, we want the output to be emojis, so
             we treate the x1 and x2 as values so the program knows the current state, and output the corresponing
             output*/
-            if (next_state_value1 == 1 && next_state_value2 == 1)
-            {
-                y = (YELLOW"HAPPINESS IS THE BEST MAKEUP!!\n \U0001F604\n"); // smiley face
-            }
-            else if (next_state_value1 == 1 && next_state_value2 == 0)
-            {
-                y = (RED "ANGER IS JUST ONE LETTER SHORT OF DANGER\n \U0001F621\n"); // angry face
-            }
-            else if (next_state_value1 == 0 && next_state_value2 == 0)
-            {
-                y = (MAGENTA"Neutral Mood! Hope your mood improves\n \U0001F610\n"); // normal face
-            }
-            else if (next_state_value1 == 0 && next_state_value2 == 1)
-            {
-                y = (BLUE"'I SAY I DON'T KNOW EVERYTHING WHEN I'M IN A BAD MOOD'\n \U0001F625\n"); // sad face
-            }
+              // The program will first calculate the next state based on these current_state_values and the input via the above equations
+    // Initial State is the Normal_Mood(state)
+    x1[i] = 0;
+    x2[i] = 0;
+    printf("x3: ");
+    scanf("%d,%s", &x3[i], y);
+    next_state_value1 = get_state_value1();
+    next_state_value2 = get_state_value2();
 
-            printf("\n%s\n", y);
-
+    if (next_state_value1 == 0 && next_state_value2 == 1)
+        goto Sad_Mood;
+    if (next_state_value1 == 0 && next_state_value2 == 0)
+        goto Normal_Mood;
 ```
 
 ### How to run the main.c file in this folder
