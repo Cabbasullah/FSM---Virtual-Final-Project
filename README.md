@@ -22,23 +22,23 @@
 ## All Possible Combinations and  Results
 
     Three possible ways to get Normal Mood Emoji
-      1. initial input value of x3= 0.
-      2. input value of x3=0 from sad mood state
-      3.input value of x3=0 [from happy mood]
-![Alt text](norm.png)
+      1. initial input value of button= 0.
+      2. input value of button=0 from sad mood state
+      3.input value of button=0 [from happy mood]
+![Alt text](normal.png)
    
     Sad Mood Emoji Combinations
-      1. x3=1 [from normal mood state]
-![Alt text](blue.png)
+      1. button=1 [from normal mood state]
+![Alt text](sad.png)
 
     Happy Mood Emoji Combinations
-      1. x3=0 [From angry mood]
-![Alt text](happy.png)
+      1. button=0 [From angry mood]
+![Alt text](smile.png)
 
     Angry Mood Emoji Combinations
-      1. x3=1[from sad mood]
-      2. x3=1[Angry mood itself]
-![Alt text](anger.png)
+      1. button=1[from sad mood]
+      2. button=1[Angry mood itself]
+![Alt text](angry.png)
 
 
 

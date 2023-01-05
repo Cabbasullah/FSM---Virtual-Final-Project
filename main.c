@@ -6,6 +6,7 @@
 #define BLUE "\x1b[34m"
 #define YELLOW "\x1b[33m"
 #define CYAN "\x1b[36m"
+#define AC_NORMAL "\x1b[m"
 
 /* The destination state is accessed by an input value of either(1 or 0) plus the current state:
  The Output depends on the current state. A destination state, right after it has been accessed, it becomes
@@ -35,7 +36,7 @@ int main()
     // Initial State is the Normal_Mood(state)
     x1[i] = 0;
     x2[i] = 0;
-    printf("x3: ");
+    printf(AC_NORMAL  "Button(1,0): ");
     scanf("%d,%s", &x3[i], y);
     if (x3[i]!=0 & x3[i]!=1)
     {
@@ -52,12 +53,12 @@ int main()
 
 //defining label for goto statement directions
 Happy_Mood:
-    y = (YELLOW "HAPPINESS IS THE BEST MAKEUP!!\n \U0001F604\n"); // smiley face
+    y = (YELLOW "Your current mood state is Happy (Smiley Face)\nHAPPINESS IS THE BEST MAKEUP!!\n ----||\U0001F604||----\n"); // smiley face
     printf("\n%s\n", y);
 
     x1[i] = 1;
     x2[i] = 1;
-    printf("x3: ");
+    printf(AC_NORMAL "Button(1, 0): ");
     scanf("%d,%s", &x3[i], y);
     if (x3[i] !=0 & x3[i] != 1)
     {
@@ -73,13 +74,13 @@ Happy_Mood:
         goto Normal_Mood;
 
 Normal_Mood:
-    y = (MAGENTA "Neutral Mood! Hope your mood improves\n \U0001F610\n"); // normal face
+    y = (MAGENTA "Your Current mood State is Normal (normal face)\nNeutral Mood! Hope your mood improves\n ----||\U0001F610||----\n"); // normal face
 
     printf("\n%s\n", y);
 
     x1[i] = 0;
     x2[i] = 0;
-    printf("x3: ");
+    printf(AC_NORMAL "Button(1,0): ");
     scanf("%d,%s", &x3[i], y);
     if (x3[i] != 0 & x3[i] != 1)
     {
@@ -94,12 +95,12 @@ Normal_Mood:
         goto Sad_Mood;
 
 Angry_Mood:
-    y = (RED "ANGER IS JUST ONE LETTER SHORT OF DANGER\n \U0001F621\n"); // angry face
+    y = (RED "Your Current mood State is angry (Angry face)\nANGER IS JUST ONE LETTER SHORT OF DANGER\n ----||\U0001F621||----\n"); // angry face
     printf("\n%s\n", y);
 
     x1[i] = 1;
     x2[i] = 0;
-    printf("x3: ");
+    printf(AC_NORMAL  "Button(1,0): ");
     scanf("%d,%s", &x3[i], y);
     if (x3[i] != 0 & x3[i] != 1)
     {
@@ -115,12 +116,12 @@ Angry_Mood:
         goto Happy_Mood;
 
 Sad_Mood:
-    y = (BLUE "'I SAY I DON'T KNOW EVERYTHING WHEN I'M IN A BAD MOOD'\n \U0001F625\n"); // sad face
+    y = (BLUE "Your Current mood State is Sad (Sad face)\n'I SAY I DON'T KNOW EVERYTHING WHEN I'M IN A BAD MOOD'\n ----||\U0001F625||----\n"); // sad face
     printf("\n%s\n", y);
 
     x1[i] = 0;
     x2[i] = 1;
-    printf("x3: ");
+    printf(AC_NORMAL "Button(1,0): ");
     scanf("%d,%s", &x3[i], y);
     if (x3[i] != 0 & x3[i] != 1)
     {
